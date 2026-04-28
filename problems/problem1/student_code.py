@@ -8,10 +8,10 @@ def ask_ollama(prompt):
         'accept': 'application/json',
         'Content-Type': 'application/json'
     }
-    model = "" # UPDATE TO YOUR MODEL
-    system_name = "" # CHANGE
-    system_favorite_food = "" # CHANGE
-    system_favorite_color = "" # CHANGE
+    model = "qwen3:0.6b"
+    system_name = "William T."
+    system_favorite_food = "Pizza"
+    system_favorite_color = "Blue"
     system_prompt = f"""
     Your name is {system_name}.
     Your favorite food is {system_favorite_food}.
@@ -19,6 +19,7 @@ def ask_ollama(prompt):
     """
 
     payload = {
+        "stream": False,
         "model": model,
         "messages": [
             {"role": "system", "content": system_prompt},

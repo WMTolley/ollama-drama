@@ -8,15 +8,20 @@ def ask_ollama(prompt):
         'accept': 'application/json',
         'Content-Type': 'application/json'
     }
-    model = "mario-model" # UPDATE TO YOUR MODEL
-    system_prompt = "You are a helpful LLM."
+    model = "qwen3:0.6b"
+    system_name = "William T."
+    system_prompt = f"""
+    My name is {system_name}.
+    The class I'm currently taking is CS5704.
+    The professor's name is Dr. Chris Brown.
+    Please review these notes $(cat Software-Process.md)
+    """
 
     payload = {
         "stream": False,
         "model": model,
         "messages": [
-            # Hmmm... should this line be here?
-            # {"role": "system", "content": ""},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
         ]
     }

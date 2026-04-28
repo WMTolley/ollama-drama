@@ -1,10 +1,12 @@
+# run using python3 -m pytest -k test_problem1.py
+
 import importlib.util
 import os
 import pytest
 
-name = "Mario"
-favorite_food = "Lasagna"
-favorite_color = "Red"
+name = "William T."
+favorite_food = "Pizza"
+favorite_color = "Blue"
 
 # Helper to load student_code module
 def load_student_code():
